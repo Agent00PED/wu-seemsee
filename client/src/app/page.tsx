@@ -17,7 +17,7 @@ export default function Home() {
             W-มู
           </h1>
           <p className="divider text-xs">・ ・ ・</p>
-          <p className="max-w-[22ch] text-sm text-muted">
+          <p className="text-sm text-muted">
             เขย่าทีเดียว ปังหรือพังให้ทั้งแก๊งรู้กัน 🔮
           </p>
         </div>
