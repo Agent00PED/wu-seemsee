@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf7f0;
+  --surface: #fffdf8;
+  --foreground: #1f1b16;
+  --muted: #6b7b8d;
+  --border: #e8e6dc;
+  --cinnabar: #c23a2a;
+  --gold: #b8860b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-cinnabar: var(--cinnabar);
+  --color-gold: var(--gold);
+  --font-serif-th: var(--font-noto-serif-thai);
+  --font-sans-th: var(--font-noto-sans-thai);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans-th), sans-serif;
+  min-height: 100%;
+}
+
+.paper-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.divider {
+  letter-spacing: 0.5em;
+  color: var(--gold);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-2px) rotate(-3deg);
+  }
+  20%,
+  80% {
+    transform: translateX(4px) rotate(3deg);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-10px) rotate(-6deg);
+  }
+  40%,
+  60% {
+    transform: translateX(10px) rotate(6deg);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.6s ease-in-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in-up 0.7s ease-out both;
+}
