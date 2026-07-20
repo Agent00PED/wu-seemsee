@@ -10,10 +10,18 @@ export default function Header() {
         W-มู
       </Link>
       <nav className="flex items-center gap-5 text-sm text-muted">
-        <Link href="/" className="hover:text-foreground hover:underline">
+        <Link
+          href="/"
+          data-tour="tour-shake"
+          className="hover:text-foreground hover:underline"
+        >
           เขย่าเซียมซี
         </Link>
-        <Link href="/fortunes" className="hover:text-foreground hover:underline">
+        <Link
+          href="/fortunes"
+          data-tour="tour-manage"
+          className="hover:text-foreground hover:underline"
+        >
           จัดการคำทำนาย
         </Link>
       </nav>
