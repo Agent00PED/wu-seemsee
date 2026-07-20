@@ -1,0 +1,21 @@
+meta {
+  name: Create Fortune
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/fortunes
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "เซียมซีเบอร์ 99",
+    "poem": "ลมพัดผ่านฟ้า นกกลับรัง",
+    "prediction": "งานที่ทำจะสำเร็จ ให้ระวังเรื่องเงิน",
+    "item": "ดอกไม้",
+    "image": null
+  }
+}
