@@ -46,12 +46,17 @@ export default function ShakeSection() {
   };
 
   return (
-    <div className="paper-card flex flex-col items-center gap-6 rounded-md p-8">
+    <div className="paper-card relative flex flex-col items-center gap-6 overflow-hidden rounded-2xl p-8 sm:p-10">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-6 h-40 w-40 rounded-full bg-gold/10 blur-2xl"
+      />
+
       <button
         onClick={handleCylinderClick}
         disabled={loading}
         aria-label="เขย่าเซียมซี"
-        className={`transition-transform hover:scale-105 disabled:opacity-50 ${
+        className={`relative transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_8px_16px_rgba(194,58,42,0.25)] disabled:opacity-50 ${
           isShaking ? "animate-shake" : ""
         }`}
       >
@@ -64,7 +69,7 @@ export default function ShakeSection() {
         />
       </button>
 
-      <p className="text-center text-sm text-muted">
+      <p className="relative text-center text-sm font-medium text-muted">
         {isShaking
           ? "กำลังเขย่า..."
           : loading
@@ -75,17 +80,17 @@ export default function ShakeSection() {
       </p>
 
       {permission === "denied" && (
-        <p className="text-sm text-cinnabar">ไม่อนุญาตให้ใช้เซนเซอร์เขย่า กดที่กระบอกแทนได้</p>
+        <p className="relative text-sm text-cinnabar">ไม่อนุญาตให้ใช้เซนเซอร์เขย่า กดที่กระบอกแทนได้</p>
       )}
 
-      {error && <p className="text-sm text-cinnabar">{error}</p>}
+      {error && <p className="relative text-sm text-cinnabar">{error}</p>}
 
       {result && (
         <Modal onClose={() => setResult(null)}>
           <FortuneCard fortune={result} />
           <button
             onClick={() => setResult(null)}
-            className="mt-4 w-full rounded-md border border-border py-2 text-sm text-muted hover:bg-background"
+            className="mt-4 w-full rounded-md border border-border py-2 text-sm text-muted transition-colors hover:border-cinnabar hover:bg-background hover:text-cinnabar"
           >
             เขย่าใหม่
           </button>
