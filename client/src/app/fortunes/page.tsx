@@ -39,12 +39,6 @@ export default async function FortunesPage() {
           สีที่มีในธีมนี้: cinnabar (แดงชาด), gold, muted, foreground, background
           ดูตัวแปรสีทั้งหมดได้ที่ src/app/globals.css
         */}
-        <Link
-          href="/fortunes/new"
-          className="rounded-md bg-cinnabar px-4 py-2 text-sm text-white transition-opacity hover:opacity-90"
-        >
-          + เพิ่มคำทำนาย
-        </Link>
       </div>
 
       {fortunes.length === 0 ? (
