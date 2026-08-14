@@ -23,11 +23,27 @@ export default async function FortunesPage() {
         <h1 className="font-[family-name:var(--font-serif-th)] text-2xl text-foreground">
           คำทำนายทั้งหมด
         </h1>
+        {/*
+          QUEST 7 — ปุ่ม "เพิ่มคำทำนาย"
+
+          เป้าหมาย: ใส่ปุ่มตรงนี้ กดแล้วไปหน้า /fortunes/new (หน้ามีอยู่แล้ว)
+
+          ขั้นตอน:
+            1. ใช้ <Link> ของ next/link (import ไว้บนสุดแล้ว) ไม่ต้องใช้ <a>
+               เพราะ <Link> จะ navigate แบบไม่ reload ทั้งหน้า
+            2. href="/fortunes/new"
+            3. ใส่ className ให้หน้าตาเหมือนปุ่ม เช่น
+               "rounded-md bg-cinnabar px-4 py-2 text-sm text-white transition-opacity hover:opacity-90"
+            4. ข้อความในปุ่ม เช่น "+ เพิ่มคำทำนาย"
+
+          สีที่มีในธีมนี้: cinnabar (แดงชาด), gold, muted, foreground, background
+          ดูตัวแปรสีทั้งหมดได้ที่ src/app/globals.css
+        */}
         <Link
           href="/fortunes/new"
-          className="rounded-md border border-cinnabar px-4 py-2 text-sm text-cinnabar hover:bg-cinnabar hover:text-surface"
+          className="rounded-md bg-cinnabar px-4 py-2 text-sm text-white transition-opacity hover:opacity-90"
         >
-          + สร้างใหม่
+          + เพิ่มคำทำนาย
         </Link>
       </div>
 

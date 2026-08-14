@@ -49,9 +49,27 @@ export async function getRandom(): Promise<Fortune | undefined> {
   return fortunes[Math.floor(Math.random() * fortunes.length)];
 }
 
+/**
+ * QUEST 10 — ดึงคำทำนาย 1 ใบจาก id (ฝั่ง server)
+ *
+ * ต้อง return: Fortune ที่ตรงกับ id หรือ `undefined` ถ้าหาไม่เจอ
+ *
+ * ใช้ที่: GET /api/fortunes/:id ใน routes.ts
+ *   -> ถ้าฟังก์ชันนี้คืน undefined route จะตอบ 404 ให้เอง
+ *   -> แปลว่าตอนนี้ QUEST 3 ฝั่ง client จะพังตลอด จนกว่าข้อนี้จะเสร็จ
+ *
+ * ขั้นตอน:
+ *   1. อ่านข้อมูลล่าสุดจากไฟล์ก่อนด้วย `await db.read()` (ลอกจาก getAll ข้างบน)
+ *   2. รายการคำทำนายทั้งหมดอยู่ที่ `db.data.fortunes`
+ *   3. ใช้ Array method `.find()` หาตัวแรกที่ `f.id` เท่ากับ `id`
+ *
+ * ไม่ต้องเช็ก "ถ้าไม่เจอ" เพิ่ม เพราะ `.find()` คืน `undefined` ให้เองอยู่แล้ว
+ *
+ * เช็กว่าผ่าน: เปิด http://localhost:4000/api/fortunes/1 ต้องได้ JSON 1 ใบ
+ *              ส่วน /api/fortunes/999 ต้องได้ 404
+ */
 export async function getById(id: number): Promise<Fortune | undefined> {
-  await db.read();
-  return db.data.fortunes.find((f) => f.id === id);
+  return undefined;
 }
 
 export async function create(input: FortuneInput): Promise<Fortune> {

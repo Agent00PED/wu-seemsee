@@ -8,7 +8,7 @@ import type { Fortune } from "../types";
 import FortuneCard from "./FortuneCard";
 import Modal from "@/components/Modal";
 
-const SHAKE_ANIMATION_MS = 600;
+const SHAKE_ANIMATION_MS = 1000;
 
 export default function ShakeSection() {
   const [result, setResult] = useState<Fortune | null>(null);
@@ -63,8 +63,8 @@ export default function ShakeSection() {
         <Image
           src="/seamsi-logo.svg"
           alt="กระบอกเซียมซี"
-          width={140}
-          height={317}
+          width={120}
+          height={300}
           priority
         />
       </button>
