@@ -38,7 +38,8 @@ import type { Fortune } from "./types";
  * ตอนนี้ return [] ไว้ก่อน = หน้าเว็บจะโล่ง ๆ ไม่มีอะไรขึ้น
  */
 export async function getAllFortunes(): Promise<Fortune[]> {
-  return []
+  const res = await apiClient.get<Fortune[]>("/api/fortunes")
+  return res.data
 }
 
 /**
@@ -52,6 +53,8 @@ export async function getAllFortunes(): Promise<Fortune[]> {
  * ระวัง: path คือ /random ไม่ใช่ /:id นะ ถ้าพิมพ์ผิดจะได้ 404
  */
 export async function getRandomFortune(): Promise<Fortune> {
+  const res = await apiClient.get<Fortune>("/api/fortunes/random");
+  return res.data;
 }
 
 /**
@@ -68,6 +71,8 @@ export async function getRandomFortune(): Promise<Fortune> {
  * ถ้าไม่เจอ id server จะตอบ 404 -> axios จะ throw error ออกมาเอง
  */
 export async function getFortuneById(id: number): Promise<Fortune> {
+  const res = await apiClient.get<Fortune>(`/api/fortunes/${id}`);
+  return res.data;
 }
 
 /**
@@ -86,6 +91,8 @@ export type FortuneInput = Omit<Fortune, "id">;
  * ท่า POST ของ axios รับ 2 ตัว: apiClient.post(path, body)
  */
 export async function createFortune(input: FortuneInput): Promise<Fortune> {
+  const res = await apiClient.post<Fortune>("/api/fortunes", input);
+  return res.data;    
 }
 
 /**
